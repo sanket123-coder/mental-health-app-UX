@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Health App UX</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="app">
+
+    <!-- Splash / Welcome -->
+    <section class="screen active" id="welcome">
+      <h1>MindCare</h1>
+      <p>Your private mental wellness companion</p>
+      <button onclick="showScreen('login')">Get Started</button>
+    </section>
+
+    <!-- Login -->
+    <section class="screen" id="login">
+      <h2>Welcome Back</h2>
+      <input type="email" placeholder="Enter email" />
+      <input type="password" placeholder="Enter password" />
+      <button onclick="showScreen('home')">Login</button>
+      <p class="small">New user? Sign up</p>
+    </section>
+
+    <!-- Home -->
+    <section class="screen" id="home">
+      <h2>How are you feeling today?</h2>
+
+      <div class="mood-grid">
+        <button onclick="selectMood('Happy')">😊 Happy</button>
+        <button onclick="selectMood('Stressed')">😟 Stressed</button>
+        <button onclick="selectMood('Sad')">😔 Sad</button>
+        <button onclick="selectMood('Anxious')">😰 Anxious</button>
+      </div>
+
+      <p id="moodText"></p>
+
+      <div class="menu">
+        <button onclick="showScreen('journal')">Private Journal</button>
+        <button onclick="showScreen('breathing')">Breathing Exercise</button>
+        <button onclick="showScreen('quotes')">Motivational Quote</button>
+        <button onclick="showScreen('support')">Help & Support</button>
+      </div>
+    </section>
+
+    <!-- Journal -->
+    <section class="screen" id="journal">
+      <h2>Private Journal</h2>
+      <textarea placeholder="Write your thoughts here..."></textarea>
+      <button onclick="saveJournal()">Save Journal</button>
+      <p id="journalMsg"></p>
+      <button class="back" onclick="showScreen('home')">Back</button>
+    </section>
+
+    <!-- Breathing -->
+    <section class="screen" id="breathing">
+      <h2>Breathing Exercise</h2>
+      <div class="circle">Breathe</div>
+      <p>Inhale slowly, hold, and exhale gently.</p>
+      <button onclick="startBreathing()">Start</button>
+      <p id="breathMsg"></p>
+      <button class="back" onclick="showScreen('home')">Back</button>
+    </section>
+
+    <!-- Quotes -->
+    <section class="screen" id="quotes">
+      <h2>Daily Motivation</h2>
+      <p class="quote" id="quoteText">
+        You are stronger than you think.
+      </p>
+      <button onclick="newQuote()">New Quote</button>
+      <button class="back" onclick="showScreen('home')">Back</button>
+    </section>
+
+    <!-- Support -->
+    <section class="screen" id="support">
+      <h2>Help & Support</h2>
+      <div class="card">
+        <h3>Anonymous Support</h3>
+        <p>Talk freely without fear of judgment.</p>
+      </div>
+      <div class="card">
+        <h3>Counselor Connect</h3>
+        <p>Get guidance from a trusted counselor.</p>
+      </div>
+      <div class="card">
+        <h3>Emergency Help</h3>
+        <p>Reach out to a trusted person or local support service immediately.</p>
+      </div>
+      <button class="back" onclick="showScreen('home')">Back</button>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
